@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hỗ trợ học thuật chuyên sâu</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen bg-slate-950 text-white">
+  <div id="app"></div>
+
+  <script>
+    const services = [
+      "Hỗ trợ khóa luận tốt nghiệp",
+      "Hỗ trợ luận văn thạc sĩ",
+      "Đồng hành nghiên cứu khoa học",
+      "Hỗ trợ đăng tạp chí khoa học trong và ngoài nước",
+    ];
+
+    const stats = [
+      { value: "1000+", label: "Học viên đã hỗ trợ" },
+      { value: "5+ năm", label: "Kinh nghiệm đồng hành" },
+      { value: "12.000+", label: "Thành viên nhóm học tập" },
+      { value: "PGS.TS", label: "Đội ngũ chuyên môn trực tiếp phụ trách" },
+    ];
+
+    const process = [
+      {
+        step: "01",
+        title: "Tiếp nhận yêu cầu",
+        desc: "Lắng nghe nhu cầu, chuyên ngành, mục tiêu và tiến độ để đề xuất lộ trình phù hợp.",
+      },
+      {
+        step: "02",
+        title: "Phân công chuyên môn",
+        desc: "Đội ngũ PGS.TS, giảng viên chuyên môn trực tiếp phụ trách theo đúng lĩnh vực nghiên cứu.",
+      },
+      {
+        step: "03",
+        title: "Hỗ trợ xuyên suốt",
+        desc: "Theo dõi tiến độ, chỉnh sửa, phản biện và đồng hành từng giai đoạn cho đến khi hoàn thiện.",
+      },
+      {
+        step: "04",
+        title: "Bàn giao và hậu hỗ trợ",
+        desc: "Tiếp tục hỗ trợ giải trình, bảo vệ, hoàn thiện hồ sơ và định hướng công bố khoa học khi cần.",
+      },
+    ];
+
+    const highlights = [
+      "Đội ngũ PGS.TS, giảng viên chuyên môn trực tiếp phụ trách bài",
+      "Kinh nghiệm hỗ trợ hơn 1000+ học viên trong hơn 5 năm",
+      "Cộng đồng học tập 12.000 thành viên trao đổi thường xuyên",
+      "Kênh TikTok lớn, chia sẻ kiến thức và kinh nghiệm học thuật thực chiến",
+      "Hỗ trợ theo từng chuyên ngành, lộ trình rõ ràng và bám sát tiến độ",
+      "Định hướng từ khâu chọn đề tài, xây dựng đề cương đến hoàn thiện nội dung",
+    ];
+
+    const app = document.getElementById("app");
+
+    app.innerHTML = `
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-700/30 via-cyan-500/10 to-slate-950"></div>
+        <div class="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl"></div>
+        <div class="absolute top-40 -left-20 h-72 w-72 rounded-full bg-blue-600/20 blur-3xl"></div>
+
+        <div class="relative mx-auto max-w-7xl px-6 py-8 lg:px-8">
+          <header class="flex items-center justify-between gap-4">
+            <div>
+              <div class="text-xl font-bold tracking-wide">HỌC THUẬT CHUYÊN SÂU</div>
+              <div class="text-sm text-slate-300">Đồng hành học viên từ định hướng đến hoàn thiện</div>
+            </div>
+            <a href="#lien-he" class="rounded-2xl border border-white/15 bg-white/10 px-5 py-3 text-sm font-medium backdrop-blur transition hover:bg-white/20">
+              Tư vấn ngay
+            </a>
+          </header>
+
+          <div class="grid gap-12 py-20 lg:grid-cols-2 lg:items-center">
+            <div>
+              <div class="mb-4 inline-flex rounded-full border border-cyan-400/30 bg-cyan-400/10 px-4 py-2 text-sm text-cyan-200">
+                Hỗ trợ khóa luận · luận văn · nghiên cứu khoa học · công bố quốc tế
+              </div>
+              <h1 class="max-w-3xl text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
+                Giải pháp hỗ trợ học thuật chuyên sâu cho
+                <span class="bg-gradient-to-r from-cyan-300 to-blue-400 bg-clip-text text-transparent"> khóa luận, luận văn và nghiên cứu khoa học</span>
+              </h1>
+              <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
+                Đồng hành cùng học viên, học viên sau đại học và nhà nghiên cứu trong quá trình thực hiện khóa luận tốt nghiệp, luận văn thạc sĩ, nghiên cứu khoa học và đăng tạp chí khoa học trong và ngoài nước.
+              </p>
+
+              <div class="mt-8 flex flex-wrap gap-4">
+                <a href="#dich-vu" class="rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.02]">Xem dịch vụ</a>
+                <a href="#thanh-tuu" class="rounded-2xl border border-white/15 bg-white/5 px-6 py-3 font-semibold transition hover:bg-white/10">Xem thành tựu</a>
+              </div>
+
+              <div id="highlights" class="mt-10 grid gap-4 sm:grid-cols-2"></div>
+            </div>
+
+            <div class="lg:pl-10">
+              <div class="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-xl">
+                <div class="rounded-[24px] bg-slate-900 p-6">
+                  <div class="mb-6 flex items-center justify-between gap-4">
+                    <div>
+                      <div class="text-sm text-cyan-300">Năng lực nổi bật</div>
+                      <div class="mt-1 text-2xl font-bold">Đồng hành học thuật bài bản</div>
+                    </div>
+                    <div class="rounded-2xl bg-cyan-400/15 px-4 py-2 text-sm text-cyan-200">Uy tín · Chuyên môn · Bám sát</div>
+                  </div>
+
+                  <div id="statsTop" class="grid gap-4 sm:grid-cols-2"></div>
+
+                  <div class="mt-6 rounded-2xl border border-cyan-400/20 bg-cyan-400/10 p-5">
+                    <div class="text-sm font-medium text-cyan-200">Cam kết đồng hành</div>
+                    <p class="mt-2 text-sm leading-7 text-slate-200">
+                      Hỗ trợ theo từng giai đoạn, theo đúng chuyên ngành, chú trọng chất lượng học thuật, tính logic, chuẩn trình bày và khả năng bảo vệ trước hội đồng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="dich-vu" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 max-w-3xl">
+          <div class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Dịch vụ</div>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Các hạng mục hỗ trợ chuyên sâu</h2>
+          <p class="mt-4 text-slate-300">
+            Mỗi học viên có mục tiêu và chuyên ngành khác nhau, vì vậy đội ngũ sẽ xây dựng hướng hỗ trợ phù hợp với nhu cầu thực tế.
+          </p>
+        </div>
+
+        <div id="services" class="grid gap-6 md:grid-cols-2 xl:grid-cols-4"></div>
+      </section>
+
+      <section id="thanh-tuu" class="border-y border-white/10 bg-white/5">
+        <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+          <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <div class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Thành tựu nổi bật</div>
+              <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Uy tín được xây dựng từ chất lượng hỗ trợ thực tế</h2>
+              <p class="mt-5 max-w-2xl text-slate-300">
+                Trong hơn 5 năm hoạt động, đội ngũ đã đồng hành cùng hơn 1000+ học viên ở nhiều bậc đào tạo và lĩnh vực khác nhau. Song song đó là cộng đồng học tập 12.000 thành viên và kênh TikTok lớn giúp lan tỏa kiến thức, kinh nghiệm và giá trị học thuật đến đông đảo người học.
+              </p>
+            </div>
+
+            <div id="statsBottom" class="grid gap-4 sm:grid-cols-2"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 max-w-3xl">
+          <div class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Quy trình hỗ trợ</div>
+          <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Làm việc rõ ràng, bám sát từng giai đoạn</h2>
+        </div>
+
+        <div id="process" class="grid gap-6 md:grid-cols-2 xl:grid-cols-4"></div>
+      </section>
+
+      <section id="lien-he" class="mx-auto max-w-7xl px-6 pb-24 lg:px-8">
+        <div class="grid gap-8 rounded-[32px] border border-cyan-400/20 bg-gradient-to-br from-cyan-400/10 to-blue-600/10 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
+          <div>
+            <div class="text-sm font-semibold uppercase tracking-[0.2em] text-cyan-300">Liên hệ tư vấn</div>
+            <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Bạn cần tư vấn lộ trình phù hợp?</h2>
+            <p class="mt-5 max-w-2xl text-slate-300">
+              Hãy để đội ngũ chuyên môn tiếp nhận thông tin, đánh giá nhu cầu và đề xuất hướng hỗ trợ phù hợp với đề tài, chuyên ngành và tiến độ của bạn.
+            </p>
+            <div class="mt-8 grid gap-4 sm:grid-cols-2">
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-5">
+                <div class="text-sm text-slate-400">Hotline / Zalo</div>
+                <div class="mt-2 text-lg font-semibold">098x xxx xxx</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-5">
+                <div class="text-sm text-slate-400">Email</div>
+                <div class="mt-2 text-lg font-semibold">contact@tenmiencuaban.com</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-5">
+                <div class="text-sm text-slate-400">Nhóm học tập</div>
+                <div class="mt-2 text-lg font-semibold">12.000+ thành viên</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-5">
+                <div class="text-sm text-slate-400">TikTok</div>
+                <div class="mt-2 text-lg font-semibold">Kênh chia sẻ kiến thức học thuật</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rounded-[28px] border border-white/10 bg-slate-950/80 p-6">
+            <h3 class="text-2xl font-bold">Đăng ký nhận tư vấn</h3>
+            <form class="mt-6 space-y-4">
+              <input class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-cyan-400" placeholder="Họ và tên" />
+              <input class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-cyan-400" placeholder="Số điện thoại" />
+              <input class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-cyan-400" placeholder="Chuyên ngành / lĩnh vực" />
+              <textarea rows="5" class="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3 outline-none placeholder:text-slate-500 focus:border-cyan-400" placeholder="Mô tả nhu cầu hỗ trợ"></textarea>
+              <button type="button" class="w-full rounded-2xl bg-cyan-400 px-6 py-3 font-semibold text-slate-950 transition hover:scale-[1.01]">Gửi thông tin tư vấn</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    `;
+
+    document.getElementById("highlights").innerHTML = highlights.map(item => `
+      <div class="rounded-2xl border border-white/10 bg-white/5 p-4 text-sm text-slate-200 backdrop-blur">${item}</div>
+    `).join("");
+
+    const statCardTop = stats.map(stat => `
+      <div class="rounded-2xl border border-white/10 bg-slate-800/80 p-5">
+        <div class="text-3xl font-bold text-cyan-300">${stat.value}</div>
+        <div class="mt-2 text-sm text-slate-300">${stat.label}</div>
+      </div>
+    `).join("");
+
+    document.getElementById("statsTop").innerHTML = statCardTop;
+
+    document.getElementById("services").innerHTML = services.map(service => `
+      <div class="rounded-[24px] border border-white/10 bg-white/5 p-6 transition hover:-translate-y-1 hover:bg-white/10">
+        <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-cyan-400/15 text-cyan-300">✓</div>
+        <h3 class="text-xl font-semibold leading-8">${service}</h3>
+        <p class="mt-3 text-sm leading-7 text-slate-300">
+          Tư vấn, định hướng, hỗ trợ hoàn thiện nội dung theo lộ trình khoa học, phù hợp tiến độ và yêu cầu chuyên môn.
+        </p>
+      </div>
+    `).join("");
+
+    document.getElementById("statsBottom").innerHTML = stats.map(stat => `
+      <div class="rounded-[24px] border border-white/10 bg-slate-900 p-6">
+        <div class="text-4xl font-bold text-cyan-300">${stat.value}</div>
+        <div class="mt-2 text-slate-300">${stat.label}</div>
+      </div>
+    `).join("");
+
+    document.getElementById("process").innerHTML = process.map(item => `
+      <div class="rounded-[24px] border border-white/10 bg-white/5 p-6">
+        <div class="text-sm font-semibold text-cyan-300">Bước ${item.step}</div>
+        <h3 class="mt-3 text-xl font-semibold">${item.title}</h3>
+        <p class="mt-3 text-sm leading-7 text-slate-300">${item.desc}</p>
+      </div>
+    `).join("");
+  </script>
+</body>
+</html>
